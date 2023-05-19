@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { Link } from "react-router-dom";
-import { Sidebar, Videos } from "./";
+import { Loader, Sidebar, Videos } from "./";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
@@ -30,7 +30,7 @@ const Feed = () => {
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }} translate="no">
           {selectedCategory} <span style={{ color: "#FC1503" }}> videos</span>
         </Typography>
-        {videos === null ? null : <Videos videos={videos} />}
+        {videos === null ? <Loader/> : <Videos videos={videos} />}
       </Box>
     </Stack>
   );
